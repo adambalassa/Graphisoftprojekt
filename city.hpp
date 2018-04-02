@@ -23,8 +23,14 @@ public:
   bool operator<(const City& c) const{
     return this->coordinateX < c.coordinateX;
   }
+  bool operator<(const double x) const{
+    return this->coordinateX < x;
+  }
   bool operator>(const City& c) const{
     return this->coordinateX > c.coordinateX;
+  }
+  bool operator>(const double x) const{
+    return this->coordinateX > x;
   }
 
   //Leírthatod mondjuk, h cities[5] = City2; (City2 City típusú, cities meg City[] típusú)
@@ -35,11 +41,11 @@ public:
     this->coordinateY = c.coordinateY;
     return *this;
   }
-
+  const string& getName() const { return name;}
   //Kiírja a city nevét
   //Leírhatod h cout << City2; és kiírja
   friend std::ostream& operator<<(std::ostream& os, const City& c){
-    os << c.name << std::endl;
+    os << c.name << " ";
     return os;
   }
   virtual ~City(){ };

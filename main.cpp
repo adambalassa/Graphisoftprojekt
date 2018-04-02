@@ -1,21 +1,26 @@
 #include <iostream>
 #include <fstream>
-#include "city.h"
-#include "citylist.h"
+#include "city.hpp"
+#include "citylist.hpp"
+#include "helperArray.hpp"
 
 int main(){
-  string str;
-  double x, y;
-  int N, K;
+  size_t N, K;
 
   std::ifstream file;
-  file.open("tester10.benobogyo");
+  file.open("tester50.benobogyo");
   file >> N >> K;
-  file >> str >> x >> y;
+  string str;
+  double x, y;
 
-  City* c = new City(str, x, y);
-  std::cout << N << " " << K << " ";
-  std::cout << *c;
-  
+  file >> str >> x >> y;
+  Array* arr = new Array(N, str, x, y);
+  for (size_t i = 0; i < N - 1; i++){
+    file >> str >> x >> y;
+    arr->push(new City(str, x, y));
+  }
+  CityList* list;
+  for(list = arr->list(); list != nullptr; list = list->next())
+    std::cout << *list;
   return 0;
 }
