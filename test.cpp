@@ -12,10 +12,10 @@ int main()
     ofstream test10k;
     test10k.open("tester10k.benobogyo");
     srand (time(NULL));
-    int c=100000;
+    int c=50000;
     int x;
     int y;
-    cout << c << " " << (int)(c / 3)<< endl;
+    test10k << c << " " << 20 << endl;
     for (int i=0; i!=c; i++)
     {
         int a=rand()%2;

@@ -25,7 +25,7 @@ public:
      cities[first] = firstCity;
    }
 
-  void push(const City* c){
+  void push(City* c){
     size_t index = search(c);
     if(*c < *firstCity){
       CityList* cl = new CityList(c);
@@ -46,6 +46,7 @@ public:
   }
 
   CityList* list() const { return firstCity; }
+  ~Array(){  delete firstCity; delete[] cities;  }
 };
 
 #endif
